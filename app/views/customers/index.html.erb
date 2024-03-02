@@ -1,0 +1,27 @@
+<!-- app/views/customers/index.html.erb -->
+
+<h1 class="block text-center mx-auto text-4xl my-6">All Customers</h1>
+<div class="relative">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Full Name</th>
+        <th>Phone Number</th>
+        <th>Email Address</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each_with_index do |customer, index| %>
+        <%= render partial: 'customer', locals: { customer: customer,index: index } %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="absolute bottom--20 right-0 space-x-4">
+    <%= link_to 'Missing Email', customers_missing_email_path %>
+    <%= link_to 'Alphabetized', customers_alphabetized_path %>
+  </div>
+</div>

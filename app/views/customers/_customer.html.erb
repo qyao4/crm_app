@@ -1,18 +1,15 @@
 <!-- app/views/customers/_customer.html.erb -->
-<div class="max-w-sm rounded overflow-hidden shadow-lg">
-  <% if customer.image.attached? %>
-    <%= image_tag(customer.image, class: "w-full") %>
-  <% else %>
-    <%= image_tag('default-customer.png', class: "w-full") %>
-  <% end %>
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2"><%= customer.full_name %></div>
-    <p class="text-gray-700 text-base">
-      Email: <%= customer.email_address %><br>
-      Phone: <%= customer.phone_number %>
-    </p>
-  </div>
-  <div class="px-6 pt-4 pb-2">
-    <%= customer.notes %>
-  </div>
-</div>
+<tr class="<%= index % 2 == 0 ? 'bg-gray-50' : 'bg-gray-200' %> h-12">
+  <td><%= customer.id %></td>
+  <td>
+    <% if customer.image.attached? %>
+      <%= image_tag(customer.image, class: "w-12 h-12 rounded-full object-cover") %>
+    <% else %>
+      <%= image_tag('default-customer.png', class: "w-12 h-12 rounded-full object-cover") %>
+    <% end %>
+  </td>
+  <td><%= customer.full_name %></td>
+  <td><%= customer.phone_number %></td>
+  <td><%= customer.email_address %></td>
+  <td><%= customer.notes %></td>
+</tr>
