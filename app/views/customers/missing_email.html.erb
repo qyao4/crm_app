@@ -5,3 +5,7 @@
     <%= render 'customer', customer: customer %>
   <% end %>
 </div>
+ <div class="flex justify-center space-x-4">
+    <%= link_to 'All Customers', root_path %>
+    <%= link_to 'Alphabetized', customers_alphabetized_path %>
+</div>
